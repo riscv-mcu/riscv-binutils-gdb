@@ -2228,6 +2228,7 @@ const struct riscv_opcode riscv_opcodes[] =
 {"vfdot.vv",   0, INSN_CLASS_V,  "Vd,Vt,VsVm", MATCH_VFDOTVV, MASK_VFDOTVV, match_opcode, 0},
 /* END RVV */
 
+#include "p_extension_ins.h"
 /* Terminate the list.  */
 {0, 0, INSN_CLASS_NONE, 0, 0, 0, 0, 0}
 };

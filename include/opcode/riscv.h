@@ -37,6 +37,8 @@ static inline unsigned int riscv_insn_length (insn_t insn)
     return 6;
   if ((insn & 0x7f) == 0x3f) /* 64-bit extensions.  */
     return 8;
+  if ((insn & 0x7f) == 0x7f) /* 80-bit extensions. used by dsp, reserved 32bit */
+    return 4;
   /* Longer instructions not supported at the moment.  */
   return 2;
 }
@@ -273,6 +275,18 @@ static const char * const riscv_vma[2] =
 #define OP_SH_FUNCT7           25
 #define OP_MASK_FUNCT2         0x3
 #define OP_SH_FUNCT2           25
+
+/* RVP fields */
+#define OP_MASK_IMM3    0x7
+#define OP_SH_IMM3      20
+#define OP_MASK_IMM4    0xf
+#define OP_SH_IMM4      20
+#define OP_MASK_IMM5    0x1f
+#define OP_SH_IMM5      20
+#define OP_MASK_IMM6    0x3f
+#define OP_SH_IMM6      20
+#define OP_MASK_RC      0x1f
+#define OP_SH_RC        27
 
 /* RVC fields.  */
 
