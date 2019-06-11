@@ -1,0 +1,2 @@
+#define MATCH_P_ADD16 0x4000007f
+#define MASK_P_ADD16  0xfe00707f

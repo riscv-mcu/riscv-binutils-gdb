@@ -776,6 +776,7 @@ const struct riscv_opcode riscv_opcodes[] =
 {"sfence.vma", 0, {"I", 0},   "s,t",  MATCH_SFENCE_VMA, MASK_SFENCE_VMA, match_opcode, 0 },
 {"wfi",        0, {"I", 0},   "",     MATCH_WFI, MASK_WFI, match_opcode, 0 },
 
+#include "p_extension_ins.h"
 /* Terminate the list.  */
 {0, 0, {0}, 0, 0, 0, 0, 0}
 };
