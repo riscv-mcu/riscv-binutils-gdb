@@ -830,6 +830,8 @@
 #define CAUSE_HYPERVISOR_ECALL 0xa
 #define CAUSE_MACHINE_ECALL 0xb
 #include "p_extension_macro.h"
+
+#define CSR_UCODE 0x801
 #endif
 #ifdef DECLARE_INSN
 #include "p_extension_declare.h"
@@ -1118,6 +1120,9 @@ DECLARE_INSN(custom3_rd_rs1, MATCH_CUSTOM3_RD_RS1, MASK_CUSTOM3_RD_RS1)
 DECLARE_INSN(custom3_rd_rs1_rs2, MATCH_CUSTOM3_RD_RS1_RS2, MASK_CUSTOM3_RD_RS1_RS2)
 #endif
 #ifdef DECLARE_CSR
+// p-extension
+DECLARE_CSR(ucode, CSR_UCODE)
+
 DECLARE_CSR(ustatus, CSR_USTATUS)
 DECLARE_CSR(uie, CSR_UIE)
 DECLARE_CSR(utvec, CSR_UTVEC)
