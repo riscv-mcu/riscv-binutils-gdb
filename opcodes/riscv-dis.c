@@ -320,6 +320,25 @@ print_insn_args (const char *d, insn_t l, bfd_vma pc, disassemble_info *info)
 	  print (info->stream, "%s", riscv_fpr_names[EXTRACT_OPERAND (RS3, l)]);
 	  break;
 
+    case 'i': // p-extension 
+	  switch (*++d) {
+          case '3':
+              print (info->stream, "%ld", EXTRACT_OPERAND(IMM3, l));
+              break;
+          case '4':
+              print (info->stream, "%ld", EXTRACT_OPERAND(IMM4, l));
+              break;
+          case '5':
+              print (info->stream, "%ld", EXTRACT_OPERAND(IMM5, l));
+              break;
+          case 'c':
+              print (info->stream, "%s", riscv_gpr_names[EXTRACT_OPERAND(RC, l)]);
+              break;
+          default:
+              print (info->stream, _("# internal error, p-extension error, c%c"), *d);
+      }
+      break;
+
 	case 'E':
 	  {
 	    const char* csr_name = NULL;
