@@ -39,31 +39,31 @@
 {"p.ksub8"      , 0, {"I",0}, "d,s,t", MATCH_P_KSUB8  , MASK_P_KSUB8   , match_opcode, 0},
 {"p.uksub8"     , 0, {"I",0}, "d,s,t", MATCH_P_UKSUB8 , MASK_P_UKSUB8  , match_opcode, 0},
 {"p.sra16"      , 0, {"I",0}, "d,s,t", MATCH_P_SRA16  , MASK_P_SRA16   , match_opcode, 0},
-//SRAI16 TODO
+{"p.srai16"     , 0, {"I",0}, "d,s,i4", MATCH_P_SRAI16 , MASK_P_SRAI16  , match_opcode, 0},
 {"p.sra16.u"    , 0, {"I",0}, "d,s,t", MATCH_P_SRA16_U, MASK_P_SRA16_U , match_opcode, 0},
-//SRAI16.u TODO
+{"p.srai16.u"   , 0, {"I",0}, "d,s,i4", MATCH_P_SRAI16_U, MASK_P_SRAI16_U, match_opcode, 0},
 {"p.srl16"      , 0, {"I",0}, "d,s,t", MATCH_P_SRL16  , MASK_P_SRL16   , match_opcode, 0},
-//SRLI16 TODO
+{"p.srli16"     , 0, {"I",0}, "d,s,i4", MATCH_P_SRLI16 , MASK_P_SRLI16  , match_opcode, 0},
 {"p.srl16.u"    , 0, {"I",0}, "d,s,t", MATCH_P_SRL16_U, MASK_P_SRL16_U , match_opcode, 0},
-//SRLI16.u TODO
+{"p.srli16.u"   , 0, {"I",0}, "d,s,i4", MATCH_P_SRLI16_U, MASK_P_SRLI16_U, match_opcode, 0},
 {"p.sll16"      , 0, {"I",0}, "d,s,t", MATCH_P_SLL16  , MASK_P_SLL16   , match_opcode, 0},
-//SLLI16 TODO
+{"p.slli16"     , 0, {"I",0}, "d,s,i4", MATCH_P_SLLI16 , MASK_P_SLLI16  , match_opcode, 0},
 {"p.ksll16"     , 0, {"I",0}, "d,s,t", MATCH_P_KSLL16 , MASK_P_KSLL16  , match_opcode, 0},
-//KSLLI16 TODO
+{"p.kslli16"    , 0, {"I",0}, "d,s,i4", MATCH_P_KSLLI16, MASK_P_KSLLI16 , match_opcode, 0},
 {"p.kslra16"    , 0, {"I",0}, "d,s,t", MATCH_P_KSLRA16, MASK_P_KSLRA16 , match_opcode, 0},
 {"p.kslra16.u"  , 0, {"I",0}, "d,s,t", MATCH_P_KSLRA16_U, MASK_P_KSLRA16_U, match_opcode, 0},
 {"p.sra8"       , 0, {"I",0}, "d,s,t", MATCH_P_SRA8   , MASK_P_SRA8    , match_opcode, 0},
-//SRAI8 TODO
+{"p.srai8"      , 0, {"I",0}, "d,s,i3", MATCH_P_SRAI8  , MASK_P_SRAI8   , match_opcode, 0},
 {"p.sra8.u"     , 0, {"I",0}, "d,s,t", MATCH_P_SRA8_U , MASK_P_SRA8_U  , match_opcode, 0},
-//SRAI8.u TODO
+{"p.srai8.u"    , 0, {"I",0}, "d,s,i3", MATCH_P_SRAI8_U, MASK_P_SRAI8_U , match_opcode, 0},
 {"p.srl8"       , 0, {"I",0}, "d,s,t", MATCH_P_SRL8   , MASK_P_SRL8    , match_opcode, 0},
-//SRLI8 TODO
+{"p.srli8"      , 0, {"I",0}, "d,s,i3", MATCH_P_SRLI8  , MASK_P_SRLI8   , match_opcode, 0},
 {"p.srl8.u"     , 0, {"I",0}, "d,s,t", MATCH_P_SRL8_U , MASK_P_SRL8_U  , match_opcode, 0},
-//SRLI8.u TODO
+{"p.srli8.u"    , 0, {"I",0}, "d,s,i3", MATCH_P_SRLI8_U, MASK_P_SRLI8_U , match_opcode, 0},
 {"p.sll8"       , 0, {"I",0}, "d,s,t", MATCH_P_SLL8   , MASK_P_SLL8    , match_opcode, 0},
-//SLLI8 TODO
+{"p.slli8"      , 0, {"I",0}, "d,s,i3", MATCH_P_SLLI8  , MASK_P_SLLI8   , match_opcode, 0},
 {"p.ksll8"      , 0, {"I",0}, "d,s,t", MATCH_P_KSLL8  , MASK_P_KSLL8   , match_opcode, 0},
-//KSLLI8 TODO
+{"p.kslli8"     , 0, {"I",0}, "d,s,i3", MATCH_P_KSLLI8 , MASK_P_KSLLI8  , match_opcode, 0},
 {"p.kslra8"     , 0, {"I",0}, "d,s,t", MATCH_P_KSLRA8 , MASK_P_KSLRA8  , match_opcode, 0},
 {"p.kslra8.u"   , 0, {"I",0}, "d,s,t", MATCH_P_KSLRA8_U, MASK_P_KSLRA8_U, match_opcode, 0},
 {"p.cmpeq16"    , 0, {"I",0}, "d,s,t", MATCH_P_CMPEQ16, MASK_P_CMPEQ16 , match_opcode, 0},
@@ -88,8 +88,8 @@
 {"p.umin16"     , 0, {"I",0}, "d,s,t", MATCH_P_UMIN16 , MASK_P_UMIN16  , match_opcode, 0},
 {"p.smax16"     , 0, {"I",0}, "d,s,t", MATCH_P_SMAX16 , MASK_P_SMAX16  , match_opcode, 0},
 {"p.umax16"     , 0, {"I",0}, "d,s,t", MATCH_P_UMAX16 , MASK_P_UMAX16  , match_opcode, 0},
-//SCLIP16 TODO
-//UCLIP16 TODO
+{"p.sclip16"    , 0, {"I",0}, "d,s,i4", MATCH_P_SCLIP16, MASK_P_SCLIP16 , match_opcode, 0},
+{"p.uclip16"    , 0, {"I",0}, "d,s,i4", MATCH_P_UCLIP16, MASK_P_UCLIP16 , match_opcode, 0},
 {"p.kabs16"     , 0, {"I",0}, "d,s", MATCH_P_KABS16 , MASK_P_KABS16  , match_opcode, 0},
 {"p.clrs16"     , 0, {"I",0}, "d,s", MATCH_P_CLRS16 , MASK_P_CLRS16  , match_opcode, 0},
 {"p.clz16"      , 0, {"I",0}, "d,s", MATCH_P_CLZ16  , MASK_P_CLZ16   , match_opcode, 0},
@@ -98,8 +98,8 @@
 {"p.umin8"      , 0, {"I",0}, "d,s,t", MATCH_P_UMIN8  , MASK_P_UMIN8   , match_opcode, 0},
 {"p.smax8"      , 0, {"I",0}, "d,s,t", MATCH_P_SMAX8  , MASK_P_SMAX8   , match_opcode, 0},
 {"p.umax8"      , 0, {"I",0}, "d,s,t", MATCH_P_UMAX8  , MASK_P_UMAX8   , match_opcode, 0},
-//SCLIP8 TODO
-//UCLIP8 TODO
+{"p.sclip8"     , 0, {"I",0}, "d,s,i3", MATCH_P_SCLIP8 , MASK_P_SCLIP8  , match_opcode, 0},
+{"p.uclip8"     , 0, {"I",0}, "d,s,i3", MATCH_P_UCLIP8 , MASK_P_UCLIP8  , match_opcode, 0},
 {"p.kabs8"      , 0, {"I",0}, "d,s", MATCH_P_KABS8  , MASK_P_KABS8   , match_opcode, 0},
 {"p.clrs8"      , 0, {"I",0}, "d,s", MATCH_P_CLRS8  , MASK_P_CLRS8   , match_opcode, 0},
 {"p.clz8"       , 0, {"I",0}, "d,s", MATCH_P_CLZ8   , MASK_P_CLZ8    , match_opcode, 0},
@@ -162,8 +162,8 @@
 {"p.kmaxds"     , 0, {"I",0}, "d,s,t", MATCH_P_KMAXDS , MASK_P_KMAXDS  , match_opcode, 0},
 {"p.kmsda"      , 0, {"I",0}, "d,s,t", MATCH_P_KMSDA  , MASK_P_KMSDA   , match_opcode, 0},
 {"p.kmsxda"     , 0, {"I",0}, "d,s,t", MATCH_P_KMSXDA , MASK_P_KMSXDA  , match_opcode, 0},
-//SCLIP32 TODO
-//UCLIP32 TODO
+{"p.sclip32"    , 0, {"I",0}, "d,s,i5", MATCH_P_SCLIP32, MASK_P_SCLIP32 , match_opcode, 0},
+{"p.uclip32"    , 0, {"I",0}, "d,s,i5", MATCH_P_UCLIP32, MASK_P_UCLIP32 , match_opcode, 0},
 {"p.clrs32"     , 0, {"I",0}, "d,s", MATCH_P_CLRS32 , MASK_P_CLRS32  , match_opcode, 0},
 {"p.clz32"      , 0, {"I",0}, "d,s", MATCH_P_CLZ32  , MASK_P_CLZ32   , match_opcode, 0},
 {"p.clo32"      , 0, {"I",0}, "d,s", MATCH_P_CLO32  , MASK_P_CLO32   , match_opcode, 0},
@@ -189,7 +189,7 @@
 {"p.kslraw"     , 0, {"I",0}, "d,s,t", MATCH_P_KSLRAW , MASK_P_KSLRAW  , match_opcode, 0},
 {"p.kslraw.u"   , 0, {"I",0}, "d,s,t", MATCH_P_KSLRAW_U, MASK_P_KSLRAW_U, match_opcode, 0},
 {"p.ksllw"      , 0, {"I",0}, "d,s,t", MATCH_P_KSLLW  , MASK_P_KSLLW   , match_opcode, 0},
-//sunpkd8_31 TODO
+{"p.ksllwi"     , 0, {"I",0}, "d,s,i5", MATCH_P_KSLLWI , MASK_P_KSLLWI  , match_opcode, 0},
 {"p.kdmabb"     , 0, {"I",0}, "d,s,t", MATCH_P_KDMABB , MASK_P_KDMABB  , match_opcode, 0},
 {"p.kdmabt"     , 0, {"I",0}, "d,s,t", MATCH_P_KDMABT , MASK_P_KDMABT  , match_opcode, 0},
 {"p.kdmatt"     , 0, {"I",0}, "d,s,t", MATCH_P_KDMATT , MASK_P_KDMATT  , match_opcode, 0},
@@ -206,7 +206,7 @@
 {"p.bitrev"     , 0, {"I",0}, "d,s,t", MATCH_P_BITREV , MASK_P_BITREV  , match_opcode, 0},
 //BITREVI TODO
 {"p.wext"       , 0, {"I",0}, "d,s,t", MATCH_P_WEXT   , MASK_P_WEXT    , match_opcode, 0},
-//WEXTI TODO
+{"p.wexti"      , 0, {"I",0}, "d,s,i5", MATCH_P_WEXTI  , MASK_P_WEXTI   , match_opcode, 0},
 //BPICK TODO
 {"p.maddr32"    , 0, {"I",0}, "d,s,t", MATCH_P_MADDR32, MASK_P_MADDR32 , match_opcode, 0},
 //MTLEI TODO
@@ -216,7 +216,7 @@
 {"p.mulr64"     , 0, {"I",0}, "d,s,t", MATCH_P_MULR64 , MASK_P_MULR64  , match_opcode, 0},
 {"p.mulsr64"    , 0, {"I",0}, "d,s,t", MATCH_P_MULSR64, MASK_P_MULSR64 , match_opcode, 0},
 //MTLBI TODO
-//INSB TODO
+{"p.insb"       , 0, {"I",0}, "d,s,i3", MATCH_P_INSB   , MASK_P_INSB    , match_opcode, 0},
 {"p.smal"       , 0, {"I",0}, "d,s,t", MATCH_P_SMAL   , MASK_P_SMAL    , match_opcode, 0},
 {"p.smalbb"     , 0, {"I",0}, "d,s,t", MATCH_P_SMALBB , MASK_P_SMALBB  , match_opcode, 0},
 {"p.smalbt"     , 0, {"I",0}, "d,s,t", MATCH_P_SMALBT , MASK_P_SMALBT  , match_opcode, 0},
@@ -232,8 +232,8 @@
 {"p.umsr64"     , 0, {"I",0}, "d,s,t", MATCH_P_UMSR64 , MASK_P_UMSR64  , match_opcode, 0},
 {"p.kmar64"     , 0, {"I",0}, "d,s,t", MATCH_P_KMAR64 , MASK_P_KMAR64  , match_opcode, 0},
 {"p.kmsr64"     , 0, {"I",0}, "d,s,t", MATCH_P_KMSR64 , MASK_P_KMSR64  , match_opcode, 0},
-{"p.ukmar64"    , 0, {"I",0}, "d,s,t", MATCH_P_UKMAR64, MASK_P_UKMAR64 , match_opcode, 0},
 {"p.ukmsr64"    , 0, {"I",0}, "d,s,t", MATCH_P_UKMSR64, MASK_P_UKMSR64 , match_opcode, 0},
+{"p.ukmar64"    , 0, {"I",0}, "d,s,t", MATCH_P_UKMAR64, MASK_P_UKMAR64 , match_opcode, 0},
 {"p.swap8"      , 0, {"I",0}, "d,s", MATCH_P_SWAP8  , MASK_P_SWAP8   , match_opcode, 0},
 {"p.swap16"     , 0, {"I",0}, "d,s", MATCH_P_SWAP16 , MASK_P_SWAP16  , match_opcode, 0},
 {"p.umul8"      , 0, {"I",0}, "d,s,t", MATCH_P_UMUL8  , MASK_P_UMUL8   , match_opcode, 0},

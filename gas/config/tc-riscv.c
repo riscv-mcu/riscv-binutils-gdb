@@ -662,7 +662,19 @@ validate_riscv_insn (const struct riscv_opcode *opc, int length)
 		      c, opc->name, opc->args);
 	    return FALSE;
 	  }
-	break;
+        break;
+      case 'i': // p-extension imm 
+        switch ( c = *p++) {
+            case '3': USE_BITS (OP_MASK_IMM3, OP_SH_IMM3); break;
+            case '4': USE_BITS (OP_MASK_IMM4, OP_SH_IMM4); break;
+            case '5': USE_BITS (OP_MASK_IMM5, OP_SH_IMM5); break;
+            default:
+               as_bad (_("internal: bad RISC-V opcode"
+                    " (unknown operand type `i%c'): %s %s"),
+                      c, opc->name, opc->args);
+               return FALSE;
+        }
+        break;
       case 'O': /* opcode */
 	switch (c = *p++)
 	  {
@@ -2068,12 +2080,51 @@ jump:
 		  imm_expr->X_op = O_absent;
 		  s = expr_end;
 		  continue;
-
 		default:
 		  as_bad (_("bad FUNCT field specifier 'F%c'\n"), *args);
 		}
 	      break;
-
+        case 'i':
+	      switch (*++args) {
+            case '3':
+                my_getExpression(imm_expr, s);
+                if (((unsigned long) imm_expr->X_add_number) > 7) {
+                    as_bad (_("Improper i immediate (%lu)"),(unsigned long) imm_expr->X_add_number);
+                    break;
+                }
+                INSERT_OPERAND (IMM3, *ip, imm_expr->X_add_number);
+                s = expr_end;
+                imm_expr->X_op = O_absent;
+                continue;
+            case '4':
+                //printf("enter i4");
+                my_getExpression(imm_expr, s);
+                if (((unsigned long) imm_expr->X_add_number) > 15) {
+                    as_bad (_("Improper i immediate (%lu)"),(unsigned long) imm_expr->X_add_number);
+                    break;
+                }
+                INSERT_OPERAND (IMM4, *ip, imm_expr->X_add_number);
+                //printf("i4 number: %d\n", imm_expr->X_add_number);
+                //printf("i4 opcode: %x\n", ip->insn_opcode);
+                s = expr_end;
+                imm_expr->X_op = O_absent;
+                continue;
+            case '5': 
+                //printf("enter i5");
+                my_getExpression(imm_expr, s);
+                if (((unsigned long) imm_expr->X_add_number) > 31) {
+                    as_bad (_("Improper i immediate (%lu)"),(unsigned long) imm_expr->X_add_number);
+                    break;
+                }
+                INSERT_OPERAND (IMM5, *ip, imm_expr->X_add_number);
+                //printf("i5 number: %d", imm_expr->X_add_number);
+                //printf("i5 opcode: %x\n", ip->insn_opcode);
+                s = expr_end;
+                imm_expr->X_op = O_absent;
+                continue;
+            default:
+              as_bad (_("bad i field specifier 'i%c'\n"), *args);
+          } 
 	    case 'z':
 	      if (my_getSmallExpression (imm_expr, imm_reloc, s, p)
 		  || imm_expr->X_op != O_constant
