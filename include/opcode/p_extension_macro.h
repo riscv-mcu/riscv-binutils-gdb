@@ -412,6 +412,8 @@
 #define MASK_P_WEXT  0xfe00707f
 #define MATCH_P_WEXTI 0xde00007f
 #define MASK_P_WEXTI  0xfe00707f
+#define MATCH_P_BPICK 0xc000207f
+#define MASK_P_BPICK  0xc000707f
 #define MATCH_P_MADDR32 0xc400107f
 #define MASK_P_MADDR32  0xfe00707f
 #define MATCH_P_MAXW 0xf200007f

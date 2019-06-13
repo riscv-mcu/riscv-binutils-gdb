@@ -668,6 +668,7 @@ validate_riscv_insn (const struct riscv_opcode *opc, int length)
             case '3': USE_BITS (OP_MASK_IMM3, OP_SH_IMM3); break;
             case '4': USE_BITS (OP_MASK_IMM4, OP_SH_IMM4); break;
             case '5': USE_BITS (OP_MASK_IMM5, OP_SH_IMM5); break;
+            case 'c': USE_BITS (OP_MASK_RC, OP_SH_RC); break;
             default:
                as_bad (_("internal: bad RISC-V opcode"
                     " (unknown operand type `i%c'): %s %s"),
@@ -2124,9 +2125,17 @@ jump:
                 s = expr_end;
                 imm_expr->X_op = O_absent;
                 continue;
+            case 'c':
+                if (reg_lookup (&s, RCLASS_GPR, &regno)) 
+                    INSERT_OPERAND(RC, *ip, regno); 
+                else {
+                    as_bad (_("Improper rc (%d)"),regno);
+                    break;
+                }
+                continue;
             default:
-              as_bad (_("bad i field specifier 'i%c'\n"), *args);
-          } 
+                as_fatal (_("internal error: c parameter error %c"), *args);
+        }
 	    case 'z':
 	      if (my_getSmallExpression (imm_expr, imm_reloc, s, p)
 		  || imm_expr->X_op != O_constant
@@ -3171,7 +3180,6 @@ riscv_convert_symbolic_attribute (const char *name)
 
   if (name == NULL)
     return -1;
-
   for (i = 0; i < ARRAY_SIZE (attribute_table); i++)
     if (strcmp (name, attribute_table[i].name) == 0)
       return attribute_table[i].tag;

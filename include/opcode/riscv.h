@@ -243,6 +243,8 @@ static const char * const riscv_pred_succ[16] =
 #define OP_SH_IMM4      20
 #define OP_MASK_IMM5    0x1f
 #define OP_SH_IMM5      20
+#define OP_MASK_RC      0x1f
+#define OP_SH_RC        25
 
 /* RVC fields.  */
 

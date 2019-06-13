@@ -207,15 +207,13 @@
 {"p.bitrevi"    , 0, {"I",0}, "d,s,i5", MATCH_P_BITREVI, MASK_P_BITREVI , match_opcode, 0},
 {"p.wext"       , 0, {"I",0}, "d,s,t", MATCH_P_WEXT   , MASK_P_WEXT    , match_opcode, 0},
 {"p.wexti"      , 0, {"I",0}, "d,s,i5", MATCH_P_WEXTI  , MASK_P_WEXTI   , match_opcode, 0},
-//BPICK TODO
+{"p.bpick"      , 0, {"I",0}, "d,s,t,ic", MATCH_P_BPICK  , MASK_P_BPICK   , match_opcode, 0},
 {"p.maddr32"    , 0, {"I",0}, "d,s,t", MATCH_P_MADDR32, MASK_P_MADDR32 , match_opcode, 0},
-//MTLEI TODO
 {"p.maxw"       , 0, {"I",0}, "d,s,t", MATCH_P_MAXW   , MASK_P_MAXW    , match_opcode, 0},
 {"p.minw"       , 0, {"I",0}, "d,s,t", MATCH_P_MINW   , MASK_P_MINW    , match_opcode, 0},
 {"p.msubr32"    , 0, {"I",0}, "d,s,t", MATCH_P_MSUBR32, MASK_P_MSUBR32 , match_opcode, 0},
 {"p.mulr64"     , 0, {"I",0}, "d,s,t", MATCH_P_MULR64 , MASK_P_MULR64  , match_opcode, 0},
 {"p.mulsr64"    , 0, {"I",0}, "d,s,t", MATCH_P_MULSR64, MASK_P_MULSR64 , match_opcode, 0},
-//MTLBI TODO
 {"p.insb"       , 0, {"I",0}, "d,s,i3", MATCH_P_INSB   , MASK_P_INSB    , match_opcode, 0},
 {"p.smal"       , 0, {"I",0}, "d,s,t", MATCH_P_SMAL   , MASK_P_SMAL    , match_opcode, 0},
 {"p.smalbb"     , 0, {"I",0}, "d,s,t", MATCH_P_SMALBB , MASK_P_SMALBB  , match_opcode, 0},
