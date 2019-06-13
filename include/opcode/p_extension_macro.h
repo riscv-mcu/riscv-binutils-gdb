@@ -402,8 +402,12 @@
 #define MASK_P_AVE  0xfe00707f
 #define MATCH_P_SRA_U 0x2400107f
 #define MASK_P_SRA_U  0xfe00707f
+#define MATCH_P_SRAI_U 0xd400107f
+#define MASK_P_SRAI_U  0xfe00707f
 #define MATCH_P_BITREV 0xe600007f
 #define MASK_P_BITREV  0xfe00707f
+#define MATCH_P_BITREVI 0xe800007f
+#define MASK_P_BITREVI  0xfe00707f
 #define MATCH_P_WEXT 0xce00007f
 #define MASK_P_WEXT  0xfe00707f
 #define MATCH_P_WEXTI 0xde00007f

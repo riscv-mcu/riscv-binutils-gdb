@@ -202,9 +202,9 @@
 //CLROV TODO
 {"p.ave"        , 0, {"I",0}, "d,s,t", MATCH_P_AVE    , MASK_P_AVE     , match_opcode, 0},
 {"p.sra.u"      , 0, {"I",0}, "d,s,t", MATCH_P_SRA_U  , MASK_P_SRA_U   , match_opcode, 0},
-//SRAI.u TODO
+{"p.srai.u"     , 0, {"I",0}, "d,s,i5", MATCH_P_SRAI_U , MASK_P_SRAI_U  , match_opcode, 0},
 {"p.bitrev"     , 0, {"I",0}, "d,s,t", MATCH_P_BITREV , MASK_P_BITREV  , match_opcode, 0},
-//BITREVI TODO
+{"p.bitrevi"    , 0, {"I",0}, "d,s,i5", MATCH_P_BITREVI, MASK_P_BITREVI , match_opcode, 0},
 {"p.wext"       , 0, {"I",0}, "d,s,t", MATCH_P_WEXT   , MASK_P_WEXT    , match_opcode, 0},
 {"p.wexti"      , 0, {"I",0}, "d,s,i5", MATCH_P_WEXTI  , MASK_P_WEXTI   , match_opcode, 0},
 //BPICK TODO
