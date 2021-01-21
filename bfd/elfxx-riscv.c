@@ -1053,8 +1053,7 @@ riscv_parsing_subset_version (riscv_parse_subset_t *rps,
 	      /* Might be beginning of `p` extension.  */
 	      if (std_ext_p)
 		{
-		  *major_version = version;
-		  *minor_version = 0;
+		  *use_default_version = TRUE;
 		  return p;
 		}
 	      else
